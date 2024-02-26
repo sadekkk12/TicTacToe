@@ -10,7 +10,7 @@ function start(){
 
 }
 function selectCell(row, col) {
-    writeToCell(row,col,1);
+    writeToCell(row,col,2);
     console.table(model);
     displayBoard();
 
@@ -37,6 +37,11 @@ function displayBoard(){
             console.log(value)
             const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
             cell.textContent = value;
+            switch(value){
+                case 0: cell.textContent = ""; break;
+                case 1: cell.textContent = "X"; break;
+                case 2: cell.textContent = "O"; break;
+            }
         }
     }
 }
@@ -59,4 +64,3 @@ function readFromCell(row, col){
     return  model[row][col]
 
 }
-
